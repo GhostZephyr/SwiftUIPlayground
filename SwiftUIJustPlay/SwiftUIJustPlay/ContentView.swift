@@ -11,13 +11,13 @@ import SwiftUIFlux
 
 
 struct ContentView: ConnectedView {
-
+    
     @EnvironmentObject private var store: Store<AppState>
     struct Props {
         let appItems: [AppItemVM]
         let dispatch: DispatchFunction
     }
-
+    
     let pageListener: HomePageListener = HomePageListener()
     
     @State private var currentPage = 1
@@ -52,9 +52,9 @@ struct ContentView: ConnectedView {
                         .onAppear {
                             self.currentPage += 1
                             props.dispatch(JustPlayActions.FetchAppStoreList(page: PageEndPoint.pageNo(pageIndex: self.currentPage, pageSize: self.pageSize)))
-                    }
+                        }
                 }
-            }
+            }.navigationTitle("App")
         }
         .frame(
             minWidth: 0,

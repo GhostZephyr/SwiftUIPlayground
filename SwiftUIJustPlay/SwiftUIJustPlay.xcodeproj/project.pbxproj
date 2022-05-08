@@ -11,6 +11,7 @@
 		BC03A299282829BB00158DA4 /* AppPagesListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03A298282829BB00158DA4 /* AppPagesListener.swift */; };
 		BC03A2A028282E1A00158DA4 /* AppPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03A29F28282E1A00158DA4 /* AppPageCell.swift */; };
 		BC03A2A228282EF400158DA4 /* AppItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03A2A128282EF400158DA4 /* AppItemVM.swift */; };
+		BC26836128286ACE0026B477 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BC26836028286ACE0026B477 /* SDWebImageSwiftUI */; };
 		BCF5F3DF2826ADE2006B48F1 /* SwiftUIJustPlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF5F3DE2826ADE2006B48F1 /* SwiftUIJustPlayApp.swift */; };
 		BCF5F3E12826ADE2006B48F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF5F3E02826ADE2006B48F1 /* ContentView.swift */; };
 		BCF5F3E32826ADE2006B48F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF5F3E22826ADE2006B48F1 /* Assets.xcassets */; };
@@ -29,7 +30,7 @@
 		BC03A298282829BB00158DA4 /* AppPagesListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPagesListener.swift; sourceTree = "<group>"; };
 		BC03A29F28282E1A00158DA4 /* AppPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageCell.swift; sourceTree = "<group>"; };
 		BC03A2A128282EF400158DA4 /* AppItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppItemVM.swift; sourceTree = "<group>"; };
-		BC26835F282868E90026B477 /* SDWebImageSwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SDWebImageSwiftUI; path = ../../SDWebImageSwiftUI; sourceTree = "<group>"; };
+		BC26835F282868E90026B477 /* SDWebImageSwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SDWebImageSwiftUI; path = SDWebImageSwiftUI; sourceTree = "<group>"; };
 		BCF5F3DB2826ADE2006B48F1 /* SwiftUIJustPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIJustPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF5F3DE2826ADE2006B48F1 /* SwiftUIJustPlayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIJustPlayApp.swift; sourceTree = "<group>"; };
 		BCF5F3E02826ADE2006B48F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC26836128286ACE0026B477 /* SDWebImageSwiftUI in Frameworks */,
 				69414A4023C35C1D0056FBDF /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +196,7 @@
 			name = SwiftUIJustPlay;
 			packageProductDependencies = (
 				69414A3F23C35C1D0056FBDF /* SwiftUIFlux */,
+				BC26836028286ACE0026B477 /* SDWebImageSwiftUI */,
 			);
 			productName = SwiftUIJustPlay;
 			productReference = BCF5F3DB2826ADE2006B48F1 /* SwiftUIJustPlay.app */;
@@ -482,6 +485,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69FB7D7922E7957200C55F01 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
 			productName = SwiftUIFlux;
+		};
+		BC26836028286ACE0026B477 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

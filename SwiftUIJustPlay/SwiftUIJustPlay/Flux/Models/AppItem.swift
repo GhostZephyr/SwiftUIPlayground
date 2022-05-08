@@ -22,7 +22,7 @@ struct AppItem: Identifiable, Codable {
 
     private enum CodingKeys: String, CodingKey {
         case title = "trackName"
-        case body = "releaseNotes"
+        case body = "description"
         case imageURLString = "artworkUrl60"
     }
 }

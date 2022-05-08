@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftUIFlux
+import SDWebImageSwiftUI
 
 struct AppPageCell: ConnectedView {
 
@@ -28,7 +29,6 @@ struct AppPageCell: ConnectedView {
 
     func body(props: Props) -> some View {
         HStack {
-            Spacer()
             if isBusy {
                 ZStack {
                     ProgressView()
@@ -36,15 +36,18 @@ struct AppPageCell: ConnectedView {
                 .frame(
                     width: 40,
                     height: 40,
-                    alignment: .center
+                    alignment: .leading
                 )
+                .padding(.leading, 10.0)
             } else {
-                Image(props.model.icon)
+                AnimatedImage(url: URL(string: props.model.icon))
                     .frame(
                         width: 40,
                         height: 40,
-                        alignment: .center
+                        alignment: .leading
+                        
                     )
+                    .padding(.leading, 10.0)
                     .cornerRadius(25)
             }
             VStack(alignment: .leading) {
@@ -63,6 +66,8 @@ struct AppPageCell: ConnectedView {
                 Image(systemName: isFav ? "heart.fill": "heart")
                     .foregroundColor(isFav ? .red : .gray)
             }
+            .padding(.trailing, 10.0)
+            
         }
         .frame(height: 60)
         .background(Color.yellow)
