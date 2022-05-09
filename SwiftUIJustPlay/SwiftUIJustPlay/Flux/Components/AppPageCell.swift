@@ -19,7 +19,8 @@ struct AppPageCell: ConnectedView {
     
     func map(state: AppState,
              dispatch: @escaping DispatchFunction) -> Props {
-        Props(model: state.homeState.appItems[appId]!)
+        let model = state.homeState.orderItems[appId]
+        return Props(model: model)
     }
     
     @State var isBusy = false
@@ -70,7 +71,7 @@ struct AppPageCell: ConnectedView {
             
         }
         .frame(height: 60)
-        .background(Color.yellow)
+        .background(Color.white)
         .cornerRadius(12)
     }
 }
