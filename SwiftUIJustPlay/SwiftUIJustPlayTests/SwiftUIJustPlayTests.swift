@@ -7,13 +7,9 @@
 
 import XCTest
 import SwiftUIFlux
-import ViewInspector
 
 @testable import SwiftUIJustPlay
 import SwiftUI
-
-extension ContentView: Inspectable { }
-extension List: Inspectable {}
 
 class SwiftUIJustPlayTests: XCTestCase {
 
