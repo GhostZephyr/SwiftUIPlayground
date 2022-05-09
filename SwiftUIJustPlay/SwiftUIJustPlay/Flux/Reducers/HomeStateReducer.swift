@@ -17,9 +17,10 @@ func homeStateReducer(state: HomeState, action: Action) -> HomeState {
                               state: state)
         break
     case let action as JustPlayActions.RefreshAppStoreList:
+        appIdentifier = 0
         let items = action.response.results.map { AppItemVM(appItem: $0)}
         for appItem in items {
-            state.orderItems[appItem.id] = appItem
+            state.orderItems.append(appItem)
         }
         break
     default:

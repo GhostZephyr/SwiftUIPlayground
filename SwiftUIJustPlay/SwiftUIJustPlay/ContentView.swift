@@ -12,7 +12,7 @@ import SwiftUIFlux
 
 struct ContentView: ConnectedView {
     
-    @EnvironmentObject private var store: Store<AppState>
+    @EnvironmentObject public var store: Store<AppState>
     struct Props {
         let appItems: [AppItemVM]
         let dispatch: DispatchFunction
@@ -30,19 +30,12 @@ struct ContentView: ConnectedView {
         NavigationView {
             List {
                 ForEach(0..<props.appItems.count, id:\.self) { index in
-                    
+
                     AppPageCell(appId: index, item: props.appItems[index])
                         .background(Color.clear)
-                    
+
                 }
-//
-//                ForEach( props.appItems) { index, model
-//                    in
-//
-//                    AppPageCell(appId: model.id, item: model)
-//                        .background(Color.clear)
-//                }
-                
+
                 if !props.appItems.isEmpty {
                     Rectangle()
                         .foregroundColor(.clear)

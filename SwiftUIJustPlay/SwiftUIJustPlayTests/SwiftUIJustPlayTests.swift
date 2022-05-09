@@ -6,11 +6,20 @@
 //
 
 import XCTest
+import SwiftUIFlux
+import ViewInspector
+
+@testable import SwiftUIJustPlay
+import SwiftUI
+
+extension ContentView: Inspectable { }
+extension List: Inspectable {}
 
 class SwiftUIJustPlayTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDownWithError() throws {
@@ -18,18 +27,37 @@ class SwiftUIJustPlayTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+        let endpoint = PageEndPoint.pageNo(pageIndex: 1, pageSize: 20)
+  
+        let rs = StoreProvider(store: store) {
+            ContentView()
         }
+        
+        
+        let promise = expectation(description: "Status code: 200")
+        
+
+        APIService.shared.GET(page: endpoint) {
+            (result: Result<AppResult<AppItem>, APIService.APIError>) in
+            switch result {
+            case let .success(response):
+                if (endpoint.pageIndex() == 0) {
+                    
+                    rs.store.dispatch(action: JustPlayActions.RefreshAppStoreList(page: endpoint,
+                                        response: response))
+                } else {
+                    rs.store.dispatch(action: JustPlayActions.SetAppStoreList(page: endpoint,
+                                        response: response))
+                }
+                break
+            case let .failure(error):
+                print(error)
+                break
+            }
+            promise.fulfill()
+        }
+        wait(for: [promise], timeout: 5)
+        XCTAssertEqual(rs.store.state.homeState.orderItems.count, 20)
     }
 
 }
